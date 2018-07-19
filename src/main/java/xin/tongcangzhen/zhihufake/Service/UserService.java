@@ -12,10 +12,7 @@ import xin.tongcangzhen.zhihufake.Model.UserEntity;
 import xin.tongcangzhen.zhihufake.Util.ZhiHuUtil;
 
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 public class UserService {
@@ -26,6 +23,10 @@ public class UserService {
 
     @Autowired
     private LoginTicketDao loginTicketDao;
+
+    public UserEntity getUser(int id) {
+        return userDao.findById(id);
+    }
 
     public Map<String, String> register(String username, String password, boolean isadmin) {
         Map<String, String> map = new HashMap<String, String>();
@@ -46,6 +47,7 @@ public class UserService {
         userEntity.setName(username);
         userEntity.setSalt(UUID.randomUUID().toString().substring(0, 5));
         userEntity.setPassword(ZhiHuUtil.MD5(password+userEntity.getSalt()));
+        userEntity.setHeadUrl(String.format("https://github.com/identicons/" + new Random().nextInt(1000)) + ".png");
         userDao.save(userEntity);
         return map;
     }

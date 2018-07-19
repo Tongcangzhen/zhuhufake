@@ -15,8 +15,12 @@ public class QuestionEntity {
     private Date createdDate;
     private int commentCount;
 
+    public void setCreatedDate(Timestamp createdDate) {
+        this.createdDate = createdDate;
+    }
+
     @Id
-    @Column(name = "id")
+    @Column(name = "id", nullable = false)
     public int getId() {
         return id;
     }
@@ -26,7 +30,7 @@ public class QuestionEntity {
     }
 
     @Basic
-    @Column(name = "title")
+    @Column(name = "title", nullable = false, length = 255)
     public String getTitle() {
         return title;
     }
@@ -36,7 +40,7 @@ public class QuestionEntity {
     }
 
     @Basic
-    @Column(name = "content")
+    @Column(name = "content", nullable = true, length = -1)
     public String getContent() {
         return content;
     }
@@ -46,7 +50,7 @@ public class QuestionEntity {
     }
 
     @Basic
-    @Column(name = "user_id")
+    @Column(name = "user_id", nullable = false)
     public int getUserId() {
         return userId;
     }
@@ -56,7 +60,7 @@ public class QuestionEntity {
     }
 
     @Basic
-    @Column(name = "created_date")
+    @Column(name = "created_date", nullable = false)
     public Date getCreatedDate() {
         return createdDate;
     }
@@ -66,7 +70,7 @@ public class QuestionEntity {
     }
 
     @Basic
-    @Column(name = "comment_count")
+    @Column(name = "comment_count", nullable = false)
     public int getCommentCount() {
         return commentCount;
     }

@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="xin.tongcangzhen.zhihufake.Model.QuestionEntity" table="question" schema="huzhi">
+        <id name="id">
+            <column name="id" sql-type="int(11)"/>
+        </id>
+        <property name="title">
+            <column name="title" sql-type="varchar(255)"/>
+        </property>
+        <property name="content">
+            <column name="content" sql-type="text" not-null="true"/>
+        </property>
+        <property name="userId">
+            <column name="user_id" sql-type="int(11)"/>
+        </property>
+        <property name="createdDate">
+            <column name="created_date" sql-type="datetime"/>
+        </property>
+        <property name="commentCount">
+            <column name="comment_count" sql-type="int(11)"/>
+        </property>
+    </class>
+</hibernate-mapping>

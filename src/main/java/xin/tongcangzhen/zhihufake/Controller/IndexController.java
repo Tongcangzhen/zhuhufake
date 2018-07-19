@@ -6,18 +6,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-@Controller
+//@Controller
 public class IndexController {
     @RequestMapping(path = {"/", "/index"})
-    @ResponseBody
     public String index() {
-        return "hello zhihu";
+        return "/index";
     }
 
     @RequestMapping(path = {"/profile/{userid}"})
     @ResponseBody
     public String profile(@PathVariable("userid") int userId) {
 
-        return String.format("hello %d", userId);
+        return "index";
     }
+
 }

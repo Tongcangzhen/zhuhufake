@@ -13,7 +13,7 @@ public class UserEntity {
     private String headUrl;
 
     @Id
-    @Column(name = "id")
+    @Column(name = "id", nullable = false)
     public int getId() {
         return id;
     }
@@ -23,7 +23,7 @@ public class UserEntity {
     }
 
     @Basic
-    @Column(name = "name")
+    @Column(name = "name", nullable = false, length = 64)
     public String getName() {
         return name;
     }
@@ -33,7 +33,7 @@ public class UserEntity {
     }
 
     @Basic
-    @Column(name = "password")
+    @Column(name = "password", nullable = false, length = 128)
     public String getPassword() {
         return password;
     }
@@ -43,7 +43,7 @@ public class UserEntity {
     }
 
     @Basic
-    @Column(name = "salt")
+    @Column(name = "salt", nullable = false, length = 32)
     public String getSalt() {
         return salt;
     }
@@ -53,7 +53,7 @@ public class UserEntity {
     }
 
     @Basic
-    @Column(name = "head_url")
+    @Column(name = "head_url", nullable = false, length = 256)
     public String getHeadUrl() {
         return headUrl;
     }
