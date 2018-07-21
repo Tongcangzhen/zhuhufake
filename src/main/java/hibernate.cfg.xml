@@ -29,6 +29,8 @@
         <mapping class="xin.tongcangzhen.zhihufake.Model.UserEntity"/>
         <mapping resource="xin/tongcangzhen/zhihufake/Model/QuestionEntity.hbm.xml"/>
         <mapping resource="xin/tongcangzhen/zhihufake/Model/UserEntity.hbm.xml"/>
+        <mapping resource="xin/tongcangzhen/zhihufake/Model/CommentEntity.hbm.xml"/>
+        <mapping class="xin.tongcangzhen.zhihufake.Model.CommentEntity"/>
 
 
         <!-- <property name="connection.username"/> -->

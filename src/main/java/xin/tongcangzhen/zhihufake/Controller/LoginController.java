@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -49,6 +50,7 @@ public class LoginController {
     public String login(Model model,
                         @RequestParam("username") String username,
                         @RequestParam("password") String password,
+                        @RequestParam(value = "next",required =false ) String nextUrl,
                         HttpServletResponse response) {
         try {
             Map<String, String> map = userService.login(username, password);
@@ -56,7 +58,10 @@ public class LoginController {
                 Cookie cookie = new Cookie("ticket", map.get("ticket"));
                 cookie.setPath("/");
                 response.addCookie(cookie);
-                return "redirect:/index";
+                if (StringUtils.isEmpty(nextUrl)) {
+                    return "redirect:/" + nextUrl;
+                }
+                return "redirect:/";
             } else {
                 model.addAttribute("msg", map.get("msg"));
                 return "/login";
@@ -70,6 +75,7 @@ public class LoginController {
     @RequestMapping(path = {"/reglogin"}, method = {RequestMethod.GET})
     public String reglogin(Model model,
                            @RequestParam(value = "next",required =false ) String nextUrl) {
+        model.addAttribute("next",nextUrl);
 
         return "/login";
     }

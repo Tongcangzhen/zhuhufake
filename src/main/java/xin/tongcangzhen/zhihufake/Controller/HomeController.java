@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import xin.tongcangzhen.zhihufake.Model.QuestionEntity;
-import xin.tongcangzhen.zhihufake.Model.UserEntity;
 import xin.tongcangzhen.zhihufake.Model.ViewObject;
 import xin.tongcangzhen.zhihufake.Service.QuestionService;
 import xin.tongcangzhen.zhihufake.Service.UserService;
@@ -36,7 +35,7 @@ public class HomeController {
             vo.set("question", question);
             vo.set("user", userService.getUser(question.getUserId()));
             vos.add(vo);
-            System.out.print("yes!!!!!" + vo.get("user"));
+//            System.out.print("yes!!!!!" + vo.get("user"));
         }
         return vos;
     }
