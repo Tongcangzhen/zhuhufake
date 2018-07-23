@@ -17,7 +17,7 @@ public class CommentService {
     SensitiveService sensitiveService;
 
     public List<CommentEntity> getCommentsByEntity(int entityId, int entityType) {
-        return commentDao.findAllByEntityIdaAndEntityType(entityId, entityType);
+        return commentDao.findAllByEntityIdAndEntityType(entityId, entityType);
     }
 
     public int addComment(CommentEntity commentEntity) {

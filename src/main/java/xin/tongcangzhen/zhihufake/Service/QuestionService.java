@@ -35,4 +35,11 @@ public class QuestionService {
         }
 
     }
+
+    public QuestionEntity getQuestionById(int id) {
+        return questionDao.findById(id);
+    }
+
+    Object
+
 }

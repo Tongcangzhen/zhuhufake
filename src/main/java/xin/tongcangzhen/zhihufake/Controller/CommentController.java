@@ -35,7 +35,7 @@ public class CommentController {
             commentEntity.setEntityId(qusetionId);
             commentEntity.setCreatedDate(new Date());
             if (hostHolder.getUser() == null) {
-                return "redirect:/:";
+                return "redirect:/";
             } else {
                 commentEntity.setUserId(hostHolder.getUser().getId());
             }
@@ -45,6 +45,6 @@ public class CommentController {
         } catch (Exception e) {
             logger.error("增加评论失败" + e.getMessage());
         }
-        return "/question/" + qusetionId;
+        return "redirect:/question/" + qusetionId;
     }
 }
