@@ -11,6 +11,7 @@ import xin.tongcangzhen.zhihufake.Model.EntityType;
 import xin.tongcangzhen.zhihufake.Model.QuestionEntity;
 import xin.tongcangzhen.zhihufake.Model.ViewObject;
 import xin.tongcangzhen.zhihufake.Service.CommentService;
+import xin.tongcangzhen.zhihufake.Service.LikeService;
 import xin.tongcangzhen.zhihufake.Service.QuestionService;
 import xin.tongcangzhen.zhihufake.Service.UserService;
 import xin.tongcangzhen.zhihufake.Util.HostHolder;
@@ -22,7 +23,7 @@ import java.util.List;
 
 @Controller
 public class QuestionController {
-    private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
+    private static final Logger logger = LoggerFactory.getLogger(QuestionController.class);
 
     @Autowired
     QuestionService questionService;
@@ -36,6 +37,9 @@ public class QuestionController {
     @Autowired
     UserService userService;
 
+    @Autowired
+    LikeService likeService;
+
     @RequestMapping(value = "/question/{qid}", method = {RequestMethod.GET})
     public String questionDetail(Model model, @PathVariable("qid") int qid) {
         QuestionEntity questionEntity = questionService.getQuestionById(qid);
@@ -45,6 +49,12 @@ public class QuestionController {
         List<ViewObject> vos = new ArrayList<>();
         for (CommentEntity comment : commentList) {
             ViewObject vo = new ViewObject();
+            vo.set("likeCount", likeService.getLikeCount(EntityType.ENTITY_COMMENT, comment.getEntityId()));
+            if (hostHolder.getUser() == null) {
+                vo.set("liked", 0);
+            } else {
+                vo.set("liked", likeService.getLikeStatus(hostHolder.getUser().getId(), EntityType.ENTITY_COMMENT, comment.getEntityId()));
+            }
             vo.set("comment", comment);
             vo.set("user", userService.getUser(comment.getUserId()));
             vos.add(vo);
