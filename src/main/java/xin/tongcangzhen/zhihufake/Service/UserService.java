@@ -28,6 +28,10 @@ public class UserService {
         return userDao.findById(id);
     }
 
+    public UserEntity getUserByName(String name) {
+        return userDao.findByName(name);
+    }
+
     public Map<String, String> register(String username, String password, boolean isadmin) {
         Map<String, String> map = new HashMap<String, String>();
         if (StringUtils.isEmpty(username)) {

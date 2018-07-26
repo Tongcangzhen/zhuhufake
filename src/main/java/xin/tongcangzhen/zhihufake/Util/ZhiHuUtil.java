@@ -11,6 +11,8 @@ import java.security.MessageDigest;
 public class ZhiHuUtil {
     private static final Logger logger = LoggerFactory.getLogger(ZhiHuUtil.class);
 
+    public static final int SYSTEM_USERID=10086;
+
     public static String getJSONString(int code, String msg) {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("code", code);

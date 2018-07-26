@@ -30,5 +30,9 @@ public class CommentService {
         return  commentDao.countByEntityIdAndEntityType(entityId, entityType);
     }
 
+    public CommentEntity getCommentById(int id) {
+       return commentDao.findAllById(id);
+    }
+
 
 }

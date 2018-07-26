@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="xin.tongcangzhen.zhihufake.Model.MessageEntity" table="message" schema="huzhi">
+        <id name="id">
+            <column name="id" sql-type="int(11)"/>
+        </id>
+        <property name="formId">
+            <column name="form_id" sql-type="int(11)" not-null="true"/>
+        </property>
+        <property name="toId">
+            <column name="to_id" sql-type="int(11)" not-null="true"/>
+        </property>
+        <property name="content">
+            <column name="content" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="createdDate">
+            <column name="created_date" sql-type="datetime" not-null="true"/>
+        </property>
+        <property name="hasRead">
+            <column name="has_read" sql-type="int(11)" not-null="true"/>
+        </property>
+        <property name="conversationId">
+            <column name="conversation_id" sql-type="varchar(45)" length="45" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>
