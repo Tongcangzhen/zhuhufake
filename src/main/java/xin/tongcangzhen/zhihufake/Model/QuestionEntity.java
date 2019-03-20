@@ -40,7 +40,7 @@ public class QuestionEntity {
     }
 
     @Basic
-    @Column(name = "content", nullable = true, length = -1)
+    @Column(name = "content", nullable = true, length = 255)
     public String getContent() {
         return content;
     }

@@ -18,7 +18,7 @@
             <column name="user_id" sql-type="int(11)"/>
         </property>
         <property name="createdDate">
-            <column name="created_date" sql-type="datetime"/>
+            <column name="created_date" sql-type="datetime"  not-null="true"/>
         </property>
         <property name="commentCount">
             <column name="comment_count" sql-type="int(11)"/>

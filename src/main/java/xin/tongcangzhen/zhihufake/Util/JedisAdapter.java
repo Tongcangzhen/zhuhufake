@@ -18,7 +18,7 @@ public class JedisAdapter implements InitializingBean {
 
     @Override
     public void afterPropertiesSet() throws Exception {
-         pool = new JedisPool();
+         pool = new JedisPool("tongcangzhen.xin",46379);
 
     }
 
