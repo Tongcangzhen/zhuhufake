@@ -49,11 +49,11 @@ public class QuestionController {
         List<ViewObject> vos = new ArrayList<>();
         for (CommentEntity comment : commentList) {
             ViewObject vo = new ViewObject();
-            vo.set("likeCount", likeService.getLikeCount(EntityType.ENTITY_COMMENT, comment.getEntityId()));
+            vo.set("likeCount", likeService.getLikeCount(EntityType.ENTITY_COMMENT, comment.getId()));
             if (hostHolder.getUser() == null) {
                 vo.set("liked", 0);
             } else {
-                vo.set("liked", likeService.getLikeStatus(hostHolder.getUser().getId(), EntityType.ENTITY_COMMENT, comment.getEntityId()));
+                vo.set("liked", likeService.getLikeStatus(hostHolder.getUser().getId(), EntityType.ENTITY_COMMENT, comment.getId()));
             }
             vo.set("comment", comment);
             vo.set("user", userService.getUser(comment.getUserId()));

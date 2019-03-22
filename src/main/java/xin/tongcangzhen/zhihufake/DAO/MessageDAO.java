@@ -12,9 +12,8 @@ public interface MessageDAO extends CrudRepository<MessageEntity, Long> {
 
     List<MessageEntity> findAllByConversationId(String conversationId, Pageable pageable);
 
-    @Query(value = "SELECT *  " + " FROM (SELECT * FROM message WHERE form_id=:userId or to_id= :userId order by created_date desc )"
-            + "tt group BY created_date desc ",
-            countQuery = "select count(*) from message",
+    @Query(value = "SELECT * ,count(id) as id" + " FROM (SELECT * FROM message WHERE form_id=:userId or to_id= :userId order by created_date desc )"
+            + "tt group by conversation_id order BY created_date desc ",
             nativeQuery = true)
     List<MessageEntity> findlist(@Param("userId") int userId,
                                  Pageable pageable);
@@ -22,4 +21,6 @@ public interface MessageDAO extends CrudRepository<MessageEntity, Long> {
 
 
     int countAllByToIdAndConversationIdAndHasRead(int userid, String conversationId, int hasRead);
+
+    int countAllByConversationId(String conversationId);
 }

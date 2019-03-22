@@ -36,6 +36,12 @@ public class QuestionService {
 
     }
 
+    public int updateComment(int id, int commentCount) {
+        QuestionEntity questionEntity = questionDao.findById(id);
+        questionEntity.setCommentCount(commentCount);
+        return questionDao.save(questionEntity) != null ? questionEntity.getId() : 0 ;
+    }
+
     public QuestionEntity getQuestionById(int id) {
         return questionDao.findById(id);
     }

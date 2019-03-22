@@ -11,6 +11,7 @@ import xin.tongcangzhen.zhihufake.DAO.CommentDao;
 import xin.tongcangzhen.zhihufake.Model.CommentEntity;
 import xin.tongcangzhen.zhihufake.Model.EntityType;
 import xin.tongcangzhen.zhihufake.Service.CommentService;
+import xin.tongcangzhen.zhihufake.Service.QuestionService;
 import xin.tongcangzhen.zhihufake.Util.HostHolder;
 
 import java.util.Date;
@@ -23,6 +24,9 @@ public class CommentController {
 
     @Autowired
     CommentService commentService;
+
+    @Autowired
+    QuestionService questionService;
 
     private static final Logger logger = LoggerFactory.getLogger(CommentController.class);
 
@@ -42,6 +46,11 @@ public class CommentController {
             commentEntity.setStatus(0);
             commentEntity.setContent(content);
             commentService.addComment(commentEntity);
+
+            //修改评论数量
+            // TODO: 2019/3/21 放入消息队列异步处理；
+            int count = commentService.getCommentCount(commentEntity.getEntityId(), commentEntity.getEntityType());
+            questionService.updateComment(commentEntity.getEntityId(), count);
         } catch (Exception e) {
             logger.error("增加评论失败" + e.getMessage());
         }

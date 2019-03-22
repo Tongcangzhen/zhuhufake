@@ -46,6 +46,7 @@ public class MessageController {
         List<MessageEntity> conversationList = messageService.getConversationList(localUserId, 0, 10);
         List<ViewObject> conversations = new ArrayList<ViewObject>();
         for (MessageEntity message : conversationList) {
+            message.setId(messageService.getConversationCount(message.getConversationId()));
             ViewObject vo = new ViewObject();
             vo.set("message", message);
             int targetId = message.getFormId() == localUserId ? message.getToId() : message.getFormId();

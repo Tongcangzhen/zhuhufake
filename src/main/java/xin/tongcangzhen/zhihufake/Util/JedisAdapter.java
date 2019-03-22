@@ -113,10 +113,17 @@ public class JedisAdapter implements InitializingBean {
     }
 
 //    public static void main(String[] args) {
-//        Jedis jedis = new Jedis();
+//        Jedis jedis = null;
+//        JedisAdapter jedisAdapter = new JedisAdapter();
+//        try {
+//            jedisAdapter.afterPropertiesSet();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        jedis = jedisAdapter.pool.getResource();
 //        jedis.flushDB();
 //        jedis.set("hello", "word");
-//        print(1,jedis.get("hello"));
+//        System.out.print(jedis.get("hello"));
 //    }
 
 }
