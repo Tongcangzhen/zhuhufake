@@ -12,4 +12,6 @@ public interface CommentDao extends CrudRepository<CommentEntity, Long> {
     int countByEntityIdAndEntityType(int entity_id, int entity_type);
 
     CommentEntity findAllById(int id);
+
+    int countAllByUserId(int userId);
 }

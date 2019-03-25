@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import xin.tongcangzhen.zhihufake.Model.EntityType;
 import xin.tongcangzhen.zhihufake.Model.QuestionEntity;
 import xin.tongcangzhen.zhihufake.Model.ViewObject;
+import xin.tongcangzhen.zhihufake.Service.FollowService;
 import xin.tongcangzhen.zhihufake.Service.QuestionService;
 import xin.tongcangzhen.zhihufake.Service.UserService;
 
@@ -27,6 +29,9 @@ public class HomeController {
     @Autowired
     UserService userService;
 
+    @Autowired
+    FollowService followService;
+
     private List<ViewObject> getQuestions(int userId, int offset, int limit) {
         List<QuestionEntity> questionList = questionService.getLatestQuestion(userId, offset, limit);
         List<ViewObject> vos = new ArrayList<>();
@@ -34,6 +39,8 @@ public class HomeController {
             ViewObject vo = new ViewObject();
             vo.set("question", question);
             vo.set("user", userService.getUser(question.getUserId()));
+            vo.set("followCount", followService.getFollowerCount(EntityType.ENTITY_QUESTION, question.getId()));
+
             vos.add(vo);
 //            System.out.print("yes!!!!!" + vo.get("user"));
         }

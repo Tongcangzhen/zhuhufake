@@ -34,5 +34,9 @@ public class CommentService {
        return commentDao.findAllById(id);
     }
 
+    public int getUserCommentCount(int userId) {
+        return commentDao.countAllByUserId(userId);
+    }
+
 
 }

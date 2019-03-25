@@ -109,23 +109,23 @@ object:not([data]) {
     border: 0
 }
 
-/*.z-ico-play-video,.z-ico-wechat-right-panel,.z-ico-show-password,.z-ico-hide-password,.z-ico-weibo,.z-ico-wechat-unlogin-page,.z-ico-weibo-share,.z-ico-wechat-share,.z-ico-green-check,.z-ico-gray-check,.z-ico-daily-share,.z-ico-qq,.z-ico-wechat,.z-ico-textedit,.z-ico-shameimaru-close,.z-ico-left,.z-ico-close,.z-ico-community:hover,.z-ico-community,.z-ico-video,.z-ico-extern-gray,.z-ico-extern-blue {*/
-    /*background-image: url(/static/revved/img/compiled/icons_a9b07ecead.261e7c3b.png);*/
-    /*background-repeat: no-repeat;*/
-    /*background-size: 108px 93px*/
-/*}*/
+.z-ico-play-video,.z-ico-wechat-right-panel,.z-ico-show-password,.z-ico-hide-password,.z-ico-weibo,.z-ico-wechat-unlogin-page,.z-ico-weibo-share,.z-ico-wechat-share,.z-ico-green-check,.z-ico-gray-check,.z-ico-daily-share,.z-ico-qq,.z-ico-wechat,.z-ico-textedit,.z-ico-shameimaru-close,.z-ico-left,.z-ico-close,.z-ico-community:hover,.z-ico-community,.z-ico-video,.z-ico-extern-gray,.z-ico-extern-blue {
+    background-image: url(/static/revved/img/compiled/icons_a9b07ecead.261e7c3b.png);
+    background-repeat: no-repeat;
+    background-size: 108px 93px
+}
 
-/*@media screen and (-webkit-min-device-pixel-ratio:1),screen and (min--moz-device-pixel-ratio:1),screen and (min-device-pixel-ratio:1),screen and (min-resolution:1dppx) {*/
-    /*.z-ico-play-video,.z-ico-wechat-right-panel,.z-ico-show-password,.z-ico-hide-password,.z-ico-weibo,.z-ico-wechat-unlogin-page,.z-ico-weibo-share,.z-ico-wechat-share,.z-ico-green-check,.z-ico-gray-check,.z-ico-daily-share,.z-ico-qq,.z-ico-wechat,.z-ico-textedit,.z-ico-shameimaru-close,.z-ico-left,.z-ico-close,.z-ico-community:hover,.z-ico-community,.z-ico-video,.z-ico-extern-gray,.z-ico-extern-blue {*/
-        /*background-image: url(/static/revved/img/compiled/icons_a9b07ecead.261e7c3b.png)*/
-    /*}*/
-/*}*/
+@media screen and (-webkit-min-device-pixel-ratio:1),screen and (min--moz-device-pixel-ratio:1),screen and (min-device-pixel-ratio:1),screen and (min-resolution:1dppx) {
+    .z-ico-play-video,.z-ico-wechat-right-panel,.z-ico-show-password,.z-ico-hide-password,.z-ico-weibo,.z-ico-wechat-unlogin-page,.z-ico-weibo-share,.z-ico-wechat-share,.z-ico-green-check,.z-ico-gray-check,.z-ico-daily-share,.z-ico-qq,.z-ico-wechat,.z-ico-textedit,.z-ico-shameimaru-close,.z-ico-left,.z-ico-close,.z-ico-community:hover,.z-ico-community,.z-ico-video,.z-ico-extern-gray,.z-ico-extern-blue {
+        background-image: url(/static/revved/img/compiled/icons_a9b07ecead.261e7c3b.png)
+    }
+}
 
-/*@media screen and (-webkit-min-device-pixel-ratio:2),screen and (min--moz-device-pixel-ratio:2),screen and (min-device-pixel-ratio:2),screen and (min-resolution:2dppx) {*/
-    /*.z-ico-play-video,.z-ico-wechat-right-panel,.z-ico-show-password,.z-ico-hide-password,.z-ico-weibo,.z-ico-wechat-unlogin-page,.z-ico-weibo-share,.z-ico-wechat-share,.z-ico-green-check,.z-ico-gray-check,.z-ico-daily-share,.z-ico-qq,.z-ico-wechat,.z-ico-textedit,.z-ico-shameimaru-close,.z-ico-left,.z-ico-close,.z-ico-community:hover,.z-ico-community,.z-ico-video,.z-ico-extern-gray,.z-ico-extern-blue {*/
-        /*background-image: url(/static/revved/img/compiled/icons@2x_a9b07ecead.58bad5a6.png)*/
-    /*}*/
-/*}*/
+@media screen and (-webkit-min-device-pixel-ratio:2),screen and (min--moz-device-pixel-ratio:2),screen and (min-device-pixel-ratio:2),screen and (min-resolution:2dppx) {
+    .z-ico-play-video,.z-ico-wechat-right-panel,.z-ico-show-password,.z-ico-hide-password,.z-ico-weibo,.z-ico-wechat-unlogin-page,.z-ico-weibo-share,.z-ico-wechat-share,.z-ico-green-check,.z-ico-gray-check,.z-ico-daily-share,.z-ico-qq,.z-ico-wechat,.z-ico-textedit,.z-ico-shameimaru-close,.z-ico-left,.z-ico-close,.z-ico-community:hover,.z-ico-community,.z-ico-video,.z-ico-extern-gray,.z-ico-extern-blue {
+        background-image: url(/static/revved/img/compiled/icons@2x_a9b07ecead.58bad5a6.png)
+    }
+}
 
 .z-ico-play-video {
     background-position: -1px -1px;
