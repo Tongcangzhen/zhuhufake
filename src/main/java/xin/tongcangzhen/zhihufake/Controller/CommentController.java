@@ -13,6 +13,9 @@ import xin.tongcangzhen.zhihufake.Model.EntityType;
 import xin.tongcangzhen.zhihufake.Service.CommentService;
 import xin.tongcangzhen.zhihufake.Service.QuestionService;
 import xin.tongcangzhen.zhihufake.Util.HostHolder;
+import xin.tongcangzhen.zhihufake.async.EventModel;
+import xin.tongcangzhen.zhihufake.async.EventProducer;
+import xin.tongcangzhen.zhihufake.async.EventType;
 
 import java.util.Date;
 
@@ -27,6 +30,9 @@ public class CommentController {
 
     @Autowired
     QuestionService questionService;
+
+    @Autowired
+    EventProducer eventProducer;
 
     private static final Logger logger = LoggerFactory.getLogger(CommentController.class);
 
@@ -47,10 +53,23 @@ public class CommentController {
             commentEntity.setContent(content);
             commentService.addComment(commentEntity);
 
+
+
             //修改评论数量
             // TODO: 2019/3/21 放入消息队列异步处理；
             int count = commentService.getCommentCount(commentEntity.getEntityId(), commentEntity.getEntityType());
             questionService.updateComment(commentEntity.getEntityId(), count);
+
+
+            eventProducer.fireEvent(new EventModel(EventType.COMMENT)
+                    .setActorId(hostHolder.getUser().getId()).setEntityId(qusetionId)
+                   .setEntityType(EntityType.ENTITY_COMMENT).setEntityOwnerId(commentEntity.getUserId()));
+
+//
+          eventProducer.fireEvent(new EventModel(EventType.COMMENT).setActorId(commentEntity.getUserId())
+                   .setEntityId(qusetionId));
+
+
         } catch (Exception e) {
             logger.error("增加评论失败" + e.getMessage());
         }

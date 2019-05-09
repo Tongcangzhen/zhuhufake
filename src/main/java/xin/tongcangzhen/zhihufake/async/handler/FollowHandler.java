@@ -1,6 +1,7 @@
 package xin.tongcangzhen.zhihufake.async.handler;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import xin.tongcangzhen.zhihufake.Model.EntityType;
 import xin.tongcangzhen.zhihufake.Model.MessageEntity;
 import xin.tongcangzhen.zhihufake.Model.UserEntity;
@@ -15,6 +16,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
+@Component
 public class FollowHandler implements EventHandler {
     @Autowired
     MessageService messageService;

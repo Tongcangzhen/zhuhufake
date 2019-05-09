@@ -11,12 +11,7 @@ import java.util.List;
 
 public interface QuestionDao extends CrudRepository<QuestionEntity, Long> {
 
-//    @Query("select o from question o where o.user_id = ?1 ")
-//    List<QuestionEntity> findLatestQuestion(int user_id, Pageable pageable);
-
     QuestionEntity findById(int id);
-
-
 
     List<QuestionEntity> findAllByUserId(int userId, Pageable pageable);
 

@@ -34,7 +34,7 @@
 
                             <tr th:each="vo : ${followUsers}">
                             <a class="zm-item-link-avatar js-user-2"  th:href="@{'/user/'+${vo.get('id')}}"
-                               >
+                               th:attr="data-original_title = ${vo.get('name')}">
                                 <img  th:src="@{${vo.get('headUrl')}}"
                                      class="zm-item-img-avatar"></a>
                             </tr>

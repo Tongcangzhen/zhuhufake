@@ -15,7 +15,7 @@ public class EventProducer {
         try {
             String json = JSONObject.toJSONString(eventModel);
             String key = RedisKeyUtil.getEventQueueKey();
-            jedisAdapter.lpush(key, json);
+            jedisAdapter.lpush(key, json); //推入redis队列
             return true;
         } catch (Exception e) {
             return false;

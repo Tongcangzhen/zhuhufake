@@ -11,10 +11,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import xin.tongcangzhen.zhihufake.Model.EntityType;
 import xin.tongcangzhen.zhihufake.Model.QuestionEntity;
+import xin.tongcangzhen.zhihufake.Model.UserEntity;
 import xin.tongcangzhen.zhihufake.Model.ViewObject;
+import xin.tongcangzhen.zhihufake.Service.CommentService;
 import xin.tongcangzhen.zhihufake.Service.FollowService;
 import xin.tongcangzhen.zhihufake.Service.QuestionService;
 import xin.tongcangzhen.zhihufake.Service.UserService;
+import xin.tongcangzhen.zhihufake.Util.HostHolder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +34,12 @@ public class HomeController {
 
     @Autowired
     FollowService followService;
+
+    @Autowired
+    CommentService commentService;
+
+    @Autowired
+    HostHolder hostHolder;
 
     private List<ViewObject> getQuestions(int userId, int offset, int limit) {
         List<QuestionEntity> questionList = questionService.getLatestQuestion(userId, offset, limit);
@@ -58,6 +67,18 @@ public class HomeController {
     @RequestMapping(path = {"/user/{userId}"}, method = {RequestMethod.GET, RequestMethod.POST})
     public String userIndex(Model model, @PathVariable("userId") int userId) {
         model.addAttribute("vos", getQuestions(userId, 0, 10));
-        return "index";
+        UserEntity userEntity = userService.getUser(userId);
+        ViewObject viewObject = new ViewObject();
+        viewObject.set("user", userEntity);
+        viewObject.set("commentCount", commentService.getUserCommentCount(userId));
+        viewObject.set("followerCount", followService.getFollowerCount(EntityType.ENTITY_USER, userId));
+        viewObject.set("followeeCount", followService.getFolloweeCount(userId, EntityType.ENTITY_USER));
+        if (hostHolder.getUser() != null) {
+            viewObject.set("followed", followService.isFollower(hostHolder.getUser().getId(), EntityType.ENTITY_USER, userId));
+        } else {
+            viewObject.set("followed", false);
+        }
+        model.addAttribute("profileUser", viewObject);
+        return "profile";
     }
 }

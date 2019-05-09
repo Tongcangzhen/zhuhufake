@@ -54,7 +54,7 @@ public class PassportInterceptor implements HandlerInterceptor {
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
         if (modelAndView != null) {
-            modelAndView.addObject("user", hostHolder.getUser());
+            modelAndView.addObject("user", hostHolder.getUser());  //将用户信息传送给前端
         }
     }
 

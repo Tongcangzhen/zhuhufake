@@ -46,8 +46,6 @@ public class SensitiveService implements InitializingBean {
         if (StringUtils.isEmpty(text)) {
             return text;
         }
-
-
         StringBuilder result = new StringBuilder();
         String replacement = "***";
         TrieNode tempNode = rootNode;
@@ -55,7 +53,6 @@ public class SensitiveService implements InitializingBean {
         int position = 0;
         while (position < text.length()) {
             Character c = text.charAt(position);
-
             if (isSymbol(c)) {
                 if (tempNode == rootNode) {
                     result.append(c);
@@ -63,11 +60,8 @@ public class SensitiveService implements InitializingBean {
                 }
                 position++;
                 continue;
-
             }
-
             tempNode = tempNode.getSubNode(c);
-
             if (tempNode == null) {
                 result.append(text.charAt(begin));
                 position=begin+1;

@@ -60,11 +60,11 @@ public class FollowService {
     }
 
     public List<Integer> getFollowees(int entityType, int entityId, int count) {
-        String followeKey = RedisKeyUtil.getFollowerKey(entityType, entityId);
+        String followeKey = RedisKeyUtil.getFolloweeKey(entityType, entityId);
         return getIdsFromSet(jedisAdapter.zrevrange(followeKey, 0, count));
     }
     public List<Integer> getFollowees(int entityType, int entityId, int offset,int count) {
-        String followeKey = RedisKeyUtil.getFollowerKey(entityType, entityId);
+        String followeKey = RedisKeyUtil.getFolloweeKey(entityType, entityId);
         return getIdsFromSet(jedisAdapter.zrevrange(followeKey, offset, count));
     }
 

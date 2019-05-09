@@ -6658,7 +6658,7 @@ header.navbar .navbar-toggle .icon-bar {
     line-height: 2;
 }
 .letter-info a{
-    color: #21a88b;
+    color: #66ccff;
 }
 .letter-info a:hover {
     color: #25bb9b;
@@ -6731,7 +6731,7 @@ header.navbar .navbar-toggle .icon-bar {
     z-index: 2;
 }
 .l-operate-bar a {
-    color: #21a88b;
+    color: #66ccff;
 }
 .l-operate-bar a:hover {
     color: #25bb9b;
@@ -15121,9 +15121,9 @@ a>.invisible {
     height: 32px;
     line-height: 30px;
     margin-top: 7px;
-    border: 1px solid #00B091;
+    border: 1px solid #66ccff;
     border-radius: 4px;
-    background: #00BC9B;
+    background: #66ccff;
     box-shadow: 0 1px 2px rgba(0,0,0,.05),inset 0 1px 1px rgba(255,255,255,.15);
     color: #fff;
     font-size: 14px;

@@ -76,7 +76,8 @@
                     }
                 },
                 error: function (oResult) {
-                    alert('出现错误，请重试');
+                    console.log(oResult)
+                    alert(oResult);
                 },
                 always: function () {
                     oEl.removeAttr('data-limit');

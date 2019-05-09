@@ -41,7 +41,6 @@ public class QuestionController {
     public String questionDetail(Model model, @PathVariable("qid") int qid) {
         QuestionEntity questionEntity = questionService.getQuestionById(qid);
         model.addAttribute("question", questionEntity);
-//        System.out.println(questionEntity.getId()+"    nadoalewa!!!!!!!!!!!!!!!!!!!");
         List<CommentEntity> commentList = commentService.getCommentsByEntity(qid, EntityType.ENTITY_QUESTION);
         List<ViewObject> vos = new ArrayList<>();
         for (CommentEntity comment : commentList) {
